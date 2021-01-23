@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Job Machine - FAQ</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<span class="logo"><img src="images/logo.png" alt="" /></span>
+						<h1>Frequently Asked Questions</h1>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html" class="active">Job Machine Home</a></li>
+							<li><a href="https://app.jobmachine.org/" class="button primary">Log In</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+							<section id="toc" class="main">
+                <div class="content">
+                  <p>Jump ahead:</p>
+                  <ul>
+                    <li><a href="#where-is-everyone">Where is everyone?</a></li>
+                    <li><a href="#connect">How do I connect with a different client instead of the webapp?</a></li>
+                    <li><a href="#topical-rooms">I can't find a room for my favorite topic.</a></li>
+                    <li><a href="#encryption">Is Job Machine encrypted?</a></li>
+                    <li><a href="#bot">What can the bot do?</a></li>
+                    <li><a href="#nickname-color">Can I change the color of my displayed nickname?</a></li>
+                    <li><a href="#long-nickname">Why does my nickname include my full matrix ID?</a></li>
+                  </ul>
+                </div>
+							</section>
+							<section id="where-is-everyone" class="main">
+                <div class="content">
+                  <header class="major">
+                    <h2>Where is everyone?</h2>
+                  </header>
+                  <p>Job Machine is a private community, but we aim to make accessibility easy-<i>ish</i>. Currently the Job Machine matrix server is open to federation, but all Job Machine-related rooms are need-to-know only. This means you can join with any matrix account across the federated network and participate in Job Machine. This also means that it's a little hard to find specific channels. Once the "Spaces" feature is fully developed, this should get easier.</p>
+
+                  <p>If you're joining us for the first time, welcome! Start by joining the <code>#waitingroom:jobmachine.org</code> and introducing yourself to the admins, and they'll be able to invite you to the various private rooms we have.</p>
+                  <a href="#toc" class="button">Back to the top</a>
+                </div>
+							</section>
+
+							<section id="connect" class="main">
+                <div class="content">
+                  <header class="major">
+                    <h2>How do I connect with a different client instead of the webapp?</h2>
+                  </header>
+                  <p>There are many Matrix clients for many platforms, with a decent collection of info at <a href="https://matrix.org/clients/" target="_blank">https://matrix.org/clients/</a>.</p>
+                  <p>When connecting from another client, you will need to connect to whichever homeserver your account is associated with. If you have an account on <code>jobmachine.org</code>, that would look like this:</p>
+                  <ul>
+                    <li>User ID: <code>your-username</code></li>
+                    <li>Matrix ID: <code>@your-username:jobmachine.org</code></li>
+                    <li>Homeserver Address: <code>https://synapse.jobmachine.org</code></li>
+                  </ul>
+                  <p>Some clients are able to figure this out just by entering your full Matrix ID, others can't. For the easiest use, we recommend you just use the <a href="https://app.jobmachine.org/" target="_blank">web app</a> which will automatically connect you to the correct homeserver.<p>
+                  <p>If you're having trouble, reach out to an admin in the <code>#waitingroom:jobmachine.org</code> and someone will help sort you out.</p>
+                  <a href="#toc" class="button">Back to the top</a>
+                </div>
+							</section>
+
+							<section id="topical-rooms" class="main">
+                <div class="content">
+                  <header class="major">
+                    <h2>I can't find a room for my favorite topic.</h2>
+                  </header>
+                  <p>Many topics have their own rooms, but not all. Feel free to bring your conversation to a vaguely related parent room or the breakroom. If it starts to take over and pick up steam from several people, feel free to create your own room! All it takes to make it officially part of Job Machine is letting an admin know so they can add it to our room lists.</p>
+                  <p>If you create a room, you are automatically an admin of that room. Steward the room according to general Job Machine principals, and if you plan on abandoning it please ensure that you make someone else you trust an admin.</p>
+                  <a href="#toc" class="button">Back to the top</a>
+                </div>
+							</section>
+
+							<section id="encryption" class="main">
+                <div class="content">
+                  <header class="major">
+                    <h2>Is Job Machine encrypted?</h2>
+                  </header>
+                  <p>Matrix (the technology that powers Job Machine) supports very strong end-to-end encryption <i>if configured for the room in question</i>. Direct messages are encrypted by default, and several of our rooms are encrypted. However, many of our rooms are still bridged to a private Slack team, and that bridging would not work properly if encryption were enabled in those rooms.</p>
+                  <p>To see if a room is encrypted, just look for a shield icon next to the room avatar!
+                  <span class="image"><img src="images/encrypted.png" /></span></p>
+                  <a href="#toc" class="button">Back to the top</a>
+                </div>
+							</section>
+
+							<section id="bot" class="main">
+                <div class="content">
+                  <header class="major">
+                    <h2>What can the bot do?</h2>
+                  </header>
+                  <p>If you've been in any of our rooms, you've probably run into Cog, our resident bot (full matrix ID is <code>@cog:jobmachine.org</code>).</p>
+                  <p>Cog can subscribe to RSS feeds, respond with an animated gif from Giphy.com, roll the dice, create polls, set reminders, and all kinds of other stuff. Just ask for help by saying <code>!help</code> in a room with Cog in it, and it will walk you through some other help commands.</p>
+                  <p>Occasionally, Cog will have trouble recognizing you if you join an existing encrypted room. If you are unable to decrypt the messages that Cog is sending in that room, please let an administrator know in the <code>#waitingroom:jobmachine.org</code> and they'll give Cog a swift kick in the circuitboard.</p>
+                  <a href="#toc" class="button">Back to the top</a>
+                </div>
+							</section>
+
+							<section id="nickname-color" class="main">
+                <div class="content">
+                  <header class="major">
+                    <h2>Can I change the color of my displayed nickname?</h2>
+                  </header>
+                  <p>No. The color of your nickname is determined by the client application using... <i>[checks notes]...</i> mysterious logic. You cannot change this unless you make changes to the code of the client application you are using.</p>
+                  <a href="#toc" class="button">Back to the top</a>
+                </div>
+              </section>
+
+							<section id="long-nickname" class="main">
+                <div class="content">
+                  <header class="major">
+                    <h2>Why does my nickname include my full matrix ID?</h2>
+                  </header>
+                  <p>Because matrix allows you to set your nickname separately from your matrix ID, there is a possibility that more than one person can have the same nickname in the same room. This would be very confusing for other people in the conversation, so matrix clients automatically show the full matrix ID to differentiate them.</p>
+                  <p>If you have a conflicting nickname with someone else in the room, you are free to change your nickname so that it doesn't conflict with theirs, and the matrix client will not need to differentiate your accounts.</p>
+                  <a href="#toc" class="button">Back to the top</a>
+                </div>
+							</section>
+
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; 2021. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
