@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Job Machine - Account Registration</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <meta property="og:title" content="Job Machine - Account Registration" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="images/logo.png" />
+    <meta property="og:url" content="https://www.jobmachine.org/register.html" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1>Register Your Account</h1>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html" class="active">Job Machine Home</a></li>
+							<li><a href="https://app.jobmachine.org/" class="button primary">Log In</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+            <section id="content" class="main">
+              <p>
+              Enter your desired username, password, and your unique invitation token. If you were given a special
+              invitation link to get here, your token should be filled in automatically.
+              </p>
+              <p>
+              Registration does not require any personally identifiable information, however you may choose to associate
+              an email address with your account after logging in to assist with password resets.
+              </p>
+            </section>
+							<section id="form" class="main">
+                <form action="localhost:5000/register" method="post">
+                  <div class="row gtr-uniform">
+                    <div class="col-12">
+                      <input id="username" name="username" type="text" placeholder="Username"
+                      required pattern="^@?[a-zA-Z_\-=\.\/0-9]+(:jobmachine\.org)?$" 
+                      required minlength="1" maxlength="200">
+                      <!-- change to your homeserver -->
+                    </div>
+                    <div class="col-6 col-12-xsmall">
+                      <input id="password" name="password" type="password" placeholder="Password"
+                      required minlength="8" maxlength="128">
+                    </div>
+                    <div class="col-6 col-12-xsmall">
+                      <input id="confirm_password" name="confirm" type="password" placeholder="Confirm Password"
+                      required>
+                    </div>
+                    <div class="col-12">
+                      <input id="token" name="token" type="text" placeholder="Invite Token"
+                      required pattern="^([A-Z][a-z]+)+$">
+                    </div>
+                    <div class="col-12">
+                      <input class="button primary" type="submit" value="register">
+                    </div>
+                  </div>
+                </form>
+							</section>
+
+
+					</div>
+
+  <article id="success" class="widget modal hidden">
+    <div class="center">
+      <header>
+        <h2 id="welcome"></h2>
+      </header>
+      <section>
+        <p>Your account has been successfully created. Click here to login in to the webapp:</p>
+        <a href="https://app.jobmachine.org/" class="button primary">Log In</a>
+        <p>Or choose one of the many other clients available here: <a href="https://matrix.org/docs/projects/clients-matrix"
+            a>https://matrix.org/docs/projects/clients-matrix</a></p>
+      </section>
+    </div>
+  </article>
+
+  <article id="error" class="widget modal hidden">
+    <div class="center">
+      <header>
+        <h2>Error</h2>
+      </header>
+      <section>
+        <p>There was an error while trying to register you.</p>
+        <h3 id="error_message" class="error"></h3>
+        <p id="error_dialog"></p>
+      </section>
+    </div>
+  </article>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; 2021. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+      <script src="assets/js/registration.js"></script>
+
+	</body>
+</html>

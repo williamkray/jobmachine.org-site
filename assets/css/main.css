@@ -72,6 +72,38 @@ input, select, textarea {
 	appearance: none;
 }
 
+.widget {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border: 0px solid;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #1f1f1f;
+  z-index: 1;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  margin-left: -12.5em;
+  margin-top: -7.5em;
+  width: 25em;
+  background-color: #f7f7f7;
+  transition: visibility .3s, opacity .3s linear;
+}
+
+.modal article {
+  margin-top: -5em;
+}
+
+.modal article,
+.modal p,
+.modal h2,
+.modal h3 {
+  color: #1f1f1f;
+}
+
+
 /* Basic */
 
 	@-ms-viewport {
