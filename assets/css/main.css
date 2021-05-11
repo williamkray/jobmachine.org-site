@@ -85,11 +85,64 @@ input, select, textarea {
 }
 
 .modal {
-  margin-left: -12.5em;
-  margin-top: -7.5em;
-  width: 25em;
-  background-color: #f7f7f7;
-  transition: visibility .3s, opacity .3s linear;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal-bg {
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	z-index: 10000;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal footer {
+	border-top: 1px solid #ccc;
+	padding: 25px;
+	background-color: #efefef;
+	display: flex;
+	justify-content: center;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.modal footer > * {
+	margin-right: 10px;
+}
+
+.modal footer > *:last-child {
+	margin-right: 0;
+}
+
+.modal-main {
+	z-index: 10001;
+	position: fixed;
+	background-color: #fff;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 5px;
+	box-shadow: 2px 0px 25px rgba(0, 0, 0, 0.2);
+}
+
+.modal header {
+	padding: 15px 0 15px 25px;
+	border-bottom: 1px solid #efefef;
+}
+
+.modal header h1,
+.modal header h2,
+.modal header h3,
+.modal header h4,
+.modal header h5,
+.modal header h6 {
+	margin: 0;
+}
+
+.modal section {
+	padding: 25px;
 }
 
 .modal article {
@@ -101,6 +154,10 @@ input, select, textarea {
 .modal h2,
 .modal h3 {
   color: #1f1f1f;
+}
+
+.modal section p:last-child {
+	margin-bottom: 0;
 }
 
 .hidden {
@@ -2020,6 +2077,40 @@ input, select, textarea {
 			input[type="button"].primary.icon:before,
 			button.primary.icon:before,
 			.button.primary.icon:before {
+				color: #ffffff !important;
+			}
+
+			input[type="submit"].secondary,
+			input[type="reset"].secondary,
+			input[type="button"].secondary,
+			button.secondary,
+			.button.secondary {
+				background-color: #8f8f8f;
+				color: #ffffff !important;
+				box-shadow: none;
+			}
+
+			input[type="submit"].secondary:hover,
+			input[type="reset"].secondary:hover,
+			input[type="button"].secondary:hover,
+			button.secondary:hover,
+			.button.secondary:hover {
+				background-color: #b9afaf;
+			}
+
+			input[type="submit"].secondary:active,
+			input[type="reset"].secondary:active,
+			input[type="button"].secondary:active,
+			button.secondary:active,
+			.button.secondary:active {
+				background-color: #716f6f;
+			}
+
+			input[type="submit"].secondary.icon:before,
+			input[type="reset"].secondary.icon:before,
+			input[type="button"].secondary.icon:before,
+			button.secondary.icon:before,
+			.button.secondary.icon:before {
 				color: #ffffff !important;
 			}
 

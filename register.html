@@ -77,28 +77,38 @@
 
 					</div>
 
-  <article id="success" class="widget modal hidden">
-    <div class="center">
-      <section id="main" class="center">
-        <p>Your account has been successfully created. Click here to login in to the webapp:</p>
-        <a href="https://app.jobmachine.org/" class="button primary">Log In</a>
-        <p>Or choose one of the <a href="https://matrix.org/docs/projects/clients-matrix"
-            >many other clients available.</a></p>
+  <article id="success" class="modal hidden">
+    <div class="modal-bg"></div>
+    <div class="modal-main">
+      <header><h2>Success</h2></header>
+
+      <section>
+        <p>Your account has been successfully created. Click <a href="https://app.jobmachine.org/">here</a> to login in to the webapp.</p>
+        <p>Or choose one of the <a href="https://matrix.org/docs/projects/clients-matrix">many other clients available.</a></p>
       </section>
+
+      <footer>
+        <button class="button secondary modal-footer-button-close">Close</button>
+        <button class="button primary modal-footer-button-close">Log In</button>
+      </footer>
     </div>
   </article>
 
-  <article id="error" class="widget modal hidden">
-    <div class="center">
-      <header>
-        <h2>Error</h2>
-      </header>
+  <article id="error" class="modal hidden">
+    <div class="modal-bg"></div>
+    <div class="modal-main">
+      <header><h2>Error</h2></header>
+
       <section>
         <p>There was an error while trying to register you.</p>
-        <h3 id="error_message" class="error"></h3>
         <p id="error_dialog"></p>
       </section>
+
+      <footer>
+        <button class="button secondary modal-footer-button-close">Ok</button>
+      </footer>
     </div>
+    
   </article>
 
 

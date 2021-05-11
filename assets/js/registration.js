@@ -76,8 +76,14 @@ function validatePassword() {
 password.onchange = validatePassword
 confirm_password.onkeyup = validatePassword
 
+// Global modal close handler for modal close buttons
+const $modalCloseButton = $('.modal-footer-button-close');
+$modalCloseButton.click(me => 
+  $(me.currentTarget).parents(".modal").addClass('hidden')
+);
+
 function showError(message, dialog) {
-  document.getElementById("error_message").innerHTML = message
+  document.querySelector("#error header h2").innerHTML = message
   document.getElementById("error_dialog").innerHTML = dialog
   let error = document.getElementById("error")
   error.classList.remove("hidden")
