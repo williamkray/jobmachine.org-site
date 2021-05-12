@@ -125,7 +125,7 @@ function sendData() {
         showError("Homeserver Error", response["error"])
       }
     } else {
-      document.getElementById("welcome").innerHTML = "Welcome"  + response['user_id']
+      document.getElementById("welcome").innerHTML = "Welcome "  + response['user_id']
       document.getElementById("success").classList.remove("hidden")
     }
 

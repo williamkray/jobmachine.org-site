@@ -47,7 +47,7 @@
               </p>
             </section>
 							<section id="form" class="main">
-                <form action="localhost:5000/register" method="post">
+                <form action="https://www.jobmachine.org/register" method="post" id="registration">
                   <div class="row gtr-uniform">
                     <div class="col-12">
                       <input id="username" name="username" type="text" placeholder="Username"
@@ -80,16 +80,19 @@
   <article id="success" class="modal hidden">
     <div class="modal-bg"></div>
     <div class="modal-main">
-      <header><h2>Success</h2></header>
+      <header><h2 id="welcome"></h2></header>
 
       <section>
         <p>Your account has been successfully created. Click <a href="https://app.jobmachine.org/">here</a> to login in to the webapp.</p>
-        <p>Or choose one of the <a href="https://matrix.org/docs/projects/clients-matrix">many other clients available.</a></p>
+        <p>Or choose one of the <a href="https://matrix.org/docs/projects/clients-matrix">many other clients
+          available.</a> Please refer to the <a href="faq.html#connect">Frequently Asked Questions</a> for assistance logging
+        into other clients.</p>
       </section>
 
       <footer>
         <button class="button secondary modal-footer-button-close">Close</button>
-        <button class="button primary modal-footer-button-close">Log In</button>
+        <a href="https://app.jobmachine.org"><button class="button primary modal-footer-button-close">Log
+            In</button></a>
       </footer>
     </div>
   </article>
@@ -100,7 +103,7 @@
       <header><h2>Error</h2></header>
 
       <section>
-        <p>There was an error while trying to register you.</p>
+        <p>There was an error while trying to register you:</p>
         <p id="error_dialog"></p>
       </section>
 
