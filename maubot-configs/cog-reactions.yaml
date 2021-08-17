@@ -227,37 +227,6 @@ rules:
                 ]|random}}
             img_name: kevin.png
             img_mime: image/png
-#    peach:
-#        matches:
-#        - booty
-#        - ^.*\sbutt(\s.*)?$
-#        - ^butt\s.*$
-#        - dumper
-#        template: reaction
-#        variables:
-#            reaction: 🍑
-#    eggplant:
-#        matches:
-#        - sexy
-#        - orgasm
-#        - girth
-#        - gerth
-#        - sperm
-#        - jizz
-#        - penis
-#        - dildo
-#        - butt plug
-#        - buttplug
-#        - boobs
-#        - boobies
-#        - tits
-#        - vagina
-#        - 🍆
-#        - 💦
-#        not_matches: [not sexy]
-#        template: reaction
-#        variables:
-#            reaction: "{{['\U0001F346', '\U0001F4A6']|random()}}"
     goodbot:
         matches:
         - ^good bot$
@@ -270,23 +239,6 @@ rules:
         template: reaction
         variables:
             reaction: "{{['\U0001F975', '\U0001F97A', '\U0001F625'] | random()}}"
-    #stevo:
-    #    matches:
-    #    - stevo
-    #    template: reaction
-    #    variables:
-    #        reaction: 🧟
-    #btc:
-    #    matches:
-    #    - bitcoin
-    #    - btc
-    #    - cardano
-    #    - (\s|^)ada(\s|$|\.|\!|\?)
-    #    - ethereum
-    #    - (\s|^)eth(\s|$|\.|\!|\?)
-    #    template: reaction
-    #    variables:
-    #        reaction: 🚀
     diamondhands:
         matches:
         - (^|\s)gme($|\s)
