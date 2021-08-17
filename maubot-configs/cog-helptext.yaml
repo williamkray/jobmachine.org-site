@@ -1,0 +1,187 @@
+templates:
+    plaintext_notice:
+        type: m.room.message
+        content:
+            msgtype: m.notice
+            body: $${message}
+    formatted_notice:
+        type: m.room.message
+        content:
+            msgtype: m.notice
+            format: org.matrix.custom.html
+            body: $${plaintextmessage}
+            formatted_body: $${formattedmessage}
+
+
+default_flags:
+- ignorecase
+
+
+antispam:
+    room:
+        max: 10
+        delay: 60
+    user:
+        max: 10
+        delay: 1
+
+rules:
+
+    greeting:
+        matches:
+        - (hello|hi|greetings|welcome|hey)(\,)? cog(bot)?(\!)?( )?
+        template: plaintext_notice
+        variables:
+            message: |
+                {{
+                    [
+                        "Hi there! Just say \"!help\" if you need something.",
+                        "Howdy, pardner! Holler out \"!help\" if ya need a hand 'round these parts.",
+                        "Hiya! If you need guidance, just say \"!help\" and I'll do my best.",
+                        "Greetings! Say \"!help\" if you want some, it's what I'm here for.",
+                        "Hey! Need help with something? Just say \"!help\" and I'll try my best."
+                    ]|random()
+                }}
+
+    cog:
+        matches:
+        - \!cog(\s)?
+        template: plaintext_notice
+        variables:
+            message: |
+                It looks like you're trying to get my attention. Try just saying "!help" for info about what I can do.
+
+    command-help:
+        matches:
+        - \!command(s)?
+        - \!help
+        template: plaintext_notice
+        variables:
+            message: |
+                Try the following commands to get started:
+
+                  !giphy <some phrase>
+                  !roll (optionally include XdY for X number of dice and Y sides on each)
+                  !pollhelp
+                  !remind help
+                  !tmdb help
+                  !rss help
+                  !xkcd help
+                  !stonks help
+                  !hodl help
+                  !invite help
+                  !faq
+                  !topic
+                  !reddit help
+                  !redditlink help
+
+    faq-help:
+        matches:
+        - \!faq
+        template: formatted_notice
+        variables:
+            formattedmessage: |
+                <p><a href="https://www.jobmachine.org/faq.html">Check out this link to some frequently asked questions.</a></p>
+
+                <p>Your question isn't on there? Just ask a real person!</p>
+
+
+            plaintextmessage: |
+                Check out https://www.jobmachine.org/faq.html for answers to some frequently asked questions.
+
+    legacy-roomlist:
+        matches: ^!roomlist pretty please$
+        template: plaintext_notice
+        variables:
+            message: |
+                please stop using this command. ask for your friends to be invited to the Space instead.
+
+    welcome-info:
+        matches: \!welcome
+        rooms: ['!SsyDHVCpTqtTuppdmf:jobmachine.org', '!NoEnTpEJebZAkZqvYO:mssj.me']
+        template: formatted_notice
+        variables:
+            plaintextmessage: |
+                Welcome to the Job Machine! I'm Cog, and I'm here to help.
+
+                Presumably, if you're reading this message it means that someone should be inviting you to the Job Machine "Space" (a space is a collection of rooms). Once you accept the invite, you should be prompted to join the "Spaces Beta", and you'll be able to view all the rooms we have on various topics. A few rooms are suggested to you in the left panel of the web-app, but feel free to join anything that sounds interesting!
+
+                If you need help with anything, you can just ask me by saying !help.
+
+                There's also a list of Frequently Asked Questions at https://www.jobmachine.org/faq.html
+
+                If you have a question that isn't covered there, just ask in here! I'm sure the humans that participate in here would be able to answer your questions.
+
+                Welcome aboard, we're happy to have you! If you haven't already, please introduce yourself to the folks in here who maybe don't know you.
+            formattedmessage: |
+                <b>Welcome to the Job Machine!</b> I'm Cog, and I'm here to help.<br /><br />
+                Presumably, if you're reading this message it means that someone should be inviting you to the Job Machine "Space" (a space is a collection of rooms). Once you accept the invite, you should be prompted to join the "Spaces Beta", and you'll be able to view all the rooms we have on various topics. A few rooms are suggested to you in the left panel of the web-app, but feel free to join anything that sounds interesting!<br /><br />
+                If you need help with anything, you can just ask me by saying <code>!help</code>. There's also a list of <a href="https://www.jobmachine.org/faq.html">Frequently Asked Questions on our website</a>.<br /><br />
+                If you have a question that isn't covered there, just ask in here! I'm sure the humans that participate in here would be able to answer your questions.<br /><br />
+                Welcome aboard, we're happy to have you! <br />
+                <br />
+                <h3>IMPORTANT: If you haven't already, please introduce yourself.</h3>
+                We have people in here from all walks of life, and you may only know a handful of friends in here right now... Give the rest of the folks a chance to learn about who you are, who invited you, and what kinds of things you're interested in. We're all about being real people and building real, community relationships!
+
+
+    formatted-roomlist:
+        matches: \!(help )?roomlist
+        #not_rooms: ['!SsyDHVCpTqtTuppdmf:jobmachine.org']
+        template: formatted_notice
+        variables:
+            plaintextmessage: |
+                This command is being deprecated, please use the Job Machine Space to discover new rooms. If your current client does not support Spaces yet (iOS) please connect using the web or desktop app.	
+
+
+            formattedmessage: |
+                This command is being deprecated, please use the <a href="https://matrix.to/#/!CxwHaBdgUYNUQWlFXs:jobmachine.org?via=mssj.me&via=jobmachine.org&via=loosli.chat">Job Machine</a> Space to discover new rooms. If your current client does not support Spaces yet (iOS) please connect using the web or desktop app.
+
+    siren:
+        matches:
+        - \!(siren|topic|room|channel)( police)?
+        template: plaintext_notice
+        variables:
+            message: |
+                🚨 Alert!! 🚨 Someone has summoned me to remind you that this room is intended for topical conversation.
+                Please review the room topic, and if necessary, continue this conversation in a more appropriate room.
+                Thank you for helping people avoid conversations they don't care about!
+
+    haskell:
+        matches: \!haskell
+        rooms: ['!gozotyKNOkCSOWDmQB:jobmachine.org', '!NoEnTpEJebZAkZqvYO:mssj.me']
+        template: formatted_notice
+        variables:
+            plaintextmessage: |
+                Greetings everyone. We've had some new people join as well as some folks drop since the class initially began. In the
+                interest of casting the widest possible net, with an emphasis of creating more of a \"community\" feeling rather than a
+                set of classes with a strict curriculum, I'd like to propose the following adjustments to the purpose of this channel
+                and group.
+                    1. Flexible schedule. Bias for attendance rather than consistency.
+                    2. Multiple sessions on the same topic / chapter. Allow folks to attend a follow up session if they aren't able to make the first.
+                    3. Condensed curriculum. Many of the chapters in the Haskell book can be condensed into single sessions. Decrease the number of sessions required for
+                basic proficiency.
+                    4. Emphasis on group projects. Rather than require everyone to do exercises in their own time, come up with a couple projects everyone can contribute to.
+                    5. Multiple meeting \"types\".  Set up meetings with a particular emphasis. E.g.:
+                        - \"Basics\" - bootstrap programmatic / conceptual intuition for some topic
+                        - \"Category Theory\" - session on a particular Haskell concept through the lens of CT
+                        - \"Practical\" - session focused on a practical use-case of a particular FP concept
+                        - \"Philosophy\" - session focused on a meta-philosophical implications of particular concept (or set of concepts)
+                        - etc...
+                I've also created a survey as a means to gauge number of members and general proficiencies - https://forms.gle/HuSbuBWLcAwMxLPE9. Please fill this out if you want to participate.
+            formattedmessage: |-
+                <p>Greetings everyone. We've had some new people join as well as some folks drop since the class initially began. In the
+                interest of casting the widest possible net, with an emphasis of creating more of a &quot;community&quot; feeling rather
+                than a set of classes with a strict curriculum, I'd like to propose the following adjustments to the purpose of this
+                channel and group.</p><ol><li>Flexible schedule. Bias for attendance rather than consistency.</li><li>Multiple
+                sessions on the same topic / chapter. Allow folks to attend a follow up session if they aren't able to make the
+                first.</li><li>Condensed curriculum. Many of the chapters in the Haskell book can be condensed into single sessions.
+                Decrease the number of sessions required for basic proficiency.</li><li>Emphasis on group projects. Rather than
+                require everyone to do exercises in their own time, come up with a couple projects everyone can contribute
+                to.</li><li>Multiple meeting &quot;types&quot;.  Set up meetings with a particular emphasis.
+                E.g.:</li></ol><ul><li>&quot;Basics&quot; - bootstrap programmatic / conceptual intuition for some
+                topic</li><li>&quot;Category Theory&quot; - session on a particular Haskell concept through the lens of
+                CT</li><li>&quot;Practical&quot; - session focused on a practical use-case of a particular FP
+                concept</li><li>&quot;Philosophy&quot; - session focused on a meta-philosophical implications of particular concept
+                (or set of concepts)</li><li>etc...</li></ul>
+                <p>I've also created a survey as a means to gauge number of members and general proficiencies - https://forms.gle/HuSbuBWLcAwMxLPE9. Please fill this out if you want to participate.</p>
+

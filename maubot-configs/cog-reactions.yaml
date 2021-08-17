@@ -1,0 +1,305 @@
+templates:
+    reaction:
+        type: m.reaction
+        variables:
+            react_to_event: '{{event.content.get_reply_to() or event.event_id}}'
+        content:
+            m.relates_to:
+                rel_type: m.annotation
+                event_id: $${react_to_event}
+                key: $${reaction}
+    img:
+        type: m.room.message
+        content:
+            msgtype: m.image
+            body: $${img_name}
+            url: $${mxc_uri}
+            info:
+                mimetype: $${img_mime}
+    mixedmedia:
+        type: m.room.message
+        variables:
+            message_content: '{{ variables.messages | random | tojson }}'
+        content: '{{message_content}}'
+
+
+default_flags:
+- ignorecase
+
+antispam:
+    room:
+        max: 20
+        delay: 5
+    user:
+        max: 20
+        delay: 5
+
+rules:
+    actually:
+        matches:
+        - ^(\!)?(_)?actually(_)?$
+        template: img
+        variables:
+            img_name: actually.png
+            img_mime: image/png
+            mxc_uri: mxc://mssj.me/93718aeafd81c3e5c736c0a1662261bbb7c8bb9f
+    mustbenice:
+        matches:
+        - ^must be( fuckin(g|\')?)? nice$
+        not_matches:
+        - ^!giphy .*$
+        template: img
+        variables:
+            mxc_uri: mxc://mssj.me/a687c5339c979b400f19ab7e00bf395cf8d11aa3
+            img_name: must_be_nice.gif
+            img_mime: image/gif
+    tbf:
+        matches:
+        #- (?<![a-z]|[A-Z])to be fair(?![a-z]|[A-Z])
+        #- (?<![a-z]|[A-Z])tbf(?![a-z]|[A-Z])
+        - ^(but |well |and )?to be fair(\.*)?$
+        - ^(but |well |and )?tbf(\.*)?$
+        not_matches:
+        - ^!giphy .*$
+        template: img
+        variables:
+            mxc_uri: |
+                {{[
+                    "mxc://mssj.me/9f71bc8d925684a93f30f52353eb31fbbb9dc588",
+                    "mxc://jobmachine.org/lnHTATixzDaSKlbqVbycoImb", 
+                    "mxc://mssj.me/3bdc15f7749253242be8361803c8145178e7fe16"
+                ]|random}}
+            img_name: to_be_fair.gif
+            img_mime: image/gif
+    ronpaul:
+        matches:
+        - ^it(\')?s happening$
+        not_matches:
+        - ^!giphy .*$
+        template: img
+        variables:
+            mxc_uri: mxc://mssj.me/44121b5b77fb695e366c6a7347eaf52a425e895f
+            img_name: its_happening.gif
+            img_mime: image/gif
+    hailsatan:
+        matches:
+        - hail satan
+        - (?<![0-9]|[a-z]|[A-Z])666(?![0-9]|[a-z]|[A-Z])
+        - (?<![0-9]|[a-z]|[A-Z])6\.66(?![0-9]|[a-z]|[A-Z])
+        not_matches:
+        - ^!giphy .*$
+        template: img
+        variables:
+            mxc_uri: |
+                {{[
+                    "mxc://mssj.me/uoQMmEuRhHadoKqWsGaRkKoW",
+                    "mxc://mssj.me/b9f0097856840a792b99335caa2e69839a7eade9"
+                ]|random}}
+            img_name: hail_satan.gif
+            img_mime: image/gif
+    whoa:
+        matches:
+        - ^whoa$
+        - ^woah$
+        not_matches:
+        - ^!giphy .*$
+        template: img
+        variables:
+            mxc_uri: |
+                {{[
+                    "mxc://mssj.me/4673f9dff77aa5fe1535a09bb26cc123e5efb89e", 
+                    "mxc://mssj.me/a3b4a632456dad7fd6b684ed642c7adc5174054d", 
+                    "mxc://mssj.me/gUBXfKEsAfZhxPhxrLdxqqVb"
+                ]|random}}
+            img_name: woah.gif
+            img_mime: image/gif
+    nerds:
+        matches:
+        - title of (ur|your) sex(\s)?tape
+        not_matches:
+        - ^!giphy .*$
+        template: img
+        variables:
+            mxc_uri: mxc://mssj.me/a62a09546a3d9bfed705a2a8e3ecc9ac82149401
+            img_name: nerds.gif
+            img_mime: image/gif
+    dns:
+        matches:
+        - it(s|\'s|\sis|\swas|\'s\sprobably) dns
+        - (probably|might be|could be|checked) dns
+        - (is|was) it dns
+        - '!dns'
+        not_matches:
+        - ^!giphy .*$
+        template: img
+        variables:
+            mxc_uri: mxc://mssj.me/cae67d8c2fda49b43c8c951a5ecd86df489450bd
+            img_name: dns_haiku.png
+            img_mime: image/png
+    out:
+        matches:
+        - ^and for (that|those) reason(s)?(\,|\:)?( i(')?m out)?$
+        not_matches:
+        - ^!giphy .*$
+        template: img
+        variables:
+            mxc_uri: mxc://mssj.me/707d53f7df78d9273c674998177b202b423b4621
+            img_name: im_out.gif
+            img_mime: image/gif
+    rimshot:
+        matches:
+        - '!rimshot'
+        not_matches:
+        - ^!giphy .*$
+        template: img
+        variables:
+            mxc_uri: |
+                {{[
+                    "mxc://mssj.me/733d932f7b48201a256f4de6b776806de90492fb",
+                    "mxc://mssj.me/ce57de9088c5f0350033320deb4cf1a373541bfa"
+                ]|random}}
+            img_name: rimshot.gif
+            img_mime: image/gif
+    blink:
+        matches:
+        - '!blink'
+        not_matches:
+        - ^!giphy .*$
+        template: img
+        variables:
+            mxc_uri: |
+                {{[
+                    "mxc://jobmachine.org/aead95a7552b2b04be15dbea0b9bee53915ddb35"
+                ]|random}}
+            img_name: blink.gif
+            img_mime: image/gif
+    newtherapy:
+        matches:
+        - '!therapy'
+        not_matches:
+        - ^!giphy .*$
+        template: mixedmedia
+        variables:
+            messages:
+            - msgtype: m.video
+              body: repressit.mp4
+              url: mxc://mssj.me/76a46f8c2d05f5eccd9fffca477e3d390ad91be0
+              info:
+                  mimetype: video/mp4
+            - msgtype: m.image
+              body: therapy.png
+              url: mxc://jobmachine.org/7ca7f099f8e3db14c50a1021ce9f1681fe3d36c0
+              info:
+                  mimetype: image/png
+    business:
+        matches:
+        - '!business'
+        not_matches:
+        - ^!giphy .*$
+        template: img
+        variables:
+            mxc_uri: |
+                {{[
+                    "mxc://mssj.me/0c6d55435c014e160f5188f9bc1e2683f3135dfe",
+                    "mxc://mssj.me/db16d54654a9495deef5cbd1957773d8daf7fbb7"
+                ]|random}}
+            img_name: business.gif
+            img_mime: image/gif
+    kj:
+        matches:
+        - teeth
+        - veneers
+        - tooth
+        - kevin jones
+        not_matches:
+        - ^!giphy .*$
+        - bluetooth
+        rooms:
+        - '!cBDviDZeFYpINZmPXq:jobmachine.org'
+        - '!NoEnTpEJebZAkZqvYO:mssj.me'
+        template: img
+        variables:
+            mxc_uri: |
+                {{[
+                    "mxc://mssj.me/f8f11a1c672e4083166f5e9e369f3ee1a3d369fc",
+                    "mxc://mssj.me/481ad08163d55301c6111e7f72f7441dd366a6b0",
+                    "mxc://mssj.me/654d7fb2c601d50f68db6181fbfacc747e37f337"
+                ]|random}}
+            img_name: kevin.png
+            img_mime: image/png
+#    peach:
+#        matches:
+#        - booty
+#        - ^.*\sbutt(\s.*)?$
+#        - ^butt\s.*$
+#        - dumper
+#        template: reaction
+#        variables:
+#            reaction: 🍑
+#    eggplant:
+#        matches:
+#        - sexy
+#        - orgasm
+#        - girth
+#        - gerth
+#        - sperm
+#        - jizz
+#        - penis
+#        - dildo
+#        - butt plug
+#        - buttplug
+#        - boobs
+#        - boobies
+#        - tits
+#        - vagina
+#        - 🍆
+#        - 💦
+#        not_matches: [not sexy]
+#        template: reaction
+#        variables:
+#            reaction: "{{['\U0001F346', '\U0001F4A6']|random()}}"
+    goodbot:
+        matches:
+        - ^good bot$
+        template: reaction
+        variables:
+            reaction: "{{['\U0001F44D️️','❤️', '\U0001F916']|random()}}"
+    badbot:
+        matches:
+        - ^bad bot$
+        template: reaction
+        variables:
+            reaction: "{{['\U0001F975', '\U0001F97A', '\U0001F625'] | random()}}"
+    #stevo:
+    #    matches:
+    #    - stevo
+    #    template: reaction
+    #    variables:
+    #        reaction: 🧟
+    #btc:
+    #    matches:
+    #    - bitcoin
+    #    - btc
+    #    - cardano
+    #    - (\s|^)ada(\s|$|\.|\!|\?)
+    #    - ethereum
+    #    - (\s|^)eth(\s|$|\.|\!|\?)
+    #    template: reaction
+    #    variables:
+    #        reaction: 🚀
+    diamondhands:
+        matches:
+        - (^|\s)gme($|\s)
+        - gamestop
+        - (^|\s)amc($|\s)
+        template: reaction
+        variables:
+            reaction: 💎🙌
+    always:
+        matches:
+        - (it\s|they\s)?always (has|have) been(\.)?
+        - (it\s|they\s)?always (was|were)(\.)?
+        template: reaction
+        variables:
+            reaction: 🌎️ 🧑‍🚀🔫🧑‍🚀
+
