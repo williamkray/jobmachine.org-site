@@ -52,6 +52,7 @@
                     <li><a href="#bot">What can the bot do?</a></li>
                     <li><a href="#nickname-color">Can I change the color of my displayed nickname?</a></li>
                     <li><a href="#long-nickname">Why does my nickname include my full matrix ID?</a></li>
+                    <li><a href="#room-nick">How do some people have a different nickname or avatar in certain rooms?</a></li>
                   </ul>
                 </div>
 							</section>
@@ -232,6 +233,30 @@
                 </div>
 							</section>
 
+							<section id="room-nick" class="main">
+                <div class="content">
+                  <header class="major">
+                    <h2>How do some people have a different nickname or avatar in certain rooms?</h2>
+                  </header>
+                  <p>You may find that someone has a different user picture or display name from themselves only within
+                  a certain room. This is a feature of some clients (currently the webapp and Element Desktop support
+                  it). In those clients, you can use the <code>/myroomnick</code> or <code>/myroomavatar</code> commands
+                  to set your profile data specifically within the context of that room.</p>
+                  <p>For example, if your nickname is normally "Foo", you can go to the job board room and use the
+                  command:<br />
+                  <code>/myroomnick Foo [looking]</code><br />
+                  to change your nickname just in that room to indicate that you are actively looking for a new job.</p>
+
+                  <p>Or in the cars room, you may want to use <code>/myroomavatar</code> to set your avatar to a picture
+                  of your car. If you run the command just like that, it will open a file browser so you can upload a
+                  picture right from there. If the image you want to use has already been uploaded to Matrix
+                  unencrypted, you can also supply the MXC URI to the image, like this:<br />
+                  <code>/myroomavatar mxc://jobmachine.org/SoMeRaNdOmGiBbErIsH</code><br />
+                  If you don't know how to find an image's MXC URI, just ask an admin and they'll help you out!
+                  </p>
+                  <a href="#toc" class="button">Back to the top</a>
+                </div>
+							</section>
 
 					</div>
 
