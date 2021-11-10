@@ -52,7 +52,8 @@
                     <li><a href="#bot">What can the bot do?</a></li>
                     <li><a href="#nickname-color">Can I change the color of my displayed nickname?</a></li>
                     <li><a href="#long-nickname">Why does my nickname include my full matrix ID?</a></li>
-                    <li><a href="#room-nick">How do some people have a different nickname or avatar in certain rooms?</a></li>
+                    <li><a href="#unable-to-decrypt">I'm getting "Unable to decrypt" messages for only a certain person,
+                        what's going on?</a></li>
                   </ul>
                 </div>
 							</section>
@@ -253,6 +254,40 @@
                   unencrypted, you can also supply the MXC URI to the image, like this:<br />
                   <code>/myroomavatar mxc://jobmachine.org/SoMeRaNdOmGiBbErIsH</code><br />
                   If you don't know how to find an image's MXC URI, just ask an admin and they'll help you out!
+                  </p>
+                  <a href="#toc" class="button">Back to the top</a>
+                </div>
+							</section>
+
+							<section id="unable-to-decrypt" class="main">
+                <div class="content">
+                  <header class="major">
+                    <h2>I'm getting an "Unable to decrypt" error, but only for messages from a specific person in an
+                      encrypted room. What's going on?</h2>
+                  </header>
+                  <p>
+                  I cannot tell you how frustrating this bug has been for our community. Basically, sometimes your
+                  client (the app you use) loses track of all the members of an encrypted room, and so it forgets to
+                  send the keys to a few people. This key sending is how they're able to see your messages when you're
+                  using encryption, so it's kind of a big deal.
+                  </p>
+                  <p>
+                  If you encounter this issue, either you or the person sending the un-decryptable messages can fix it
+                  <i>going forward</i> by either leaving the room and rejoining, or if you're on the web
+                  application/desktop app, using the <code>/discardsession</code> command. <em>This will not magically
+                    make it possible to decrypt the old, undecryptable messages!</em> This simply fixes the issue going
+                  forward. To test, be sure to send (or have the offender send) some new messages to make sure everyone
+                  can read them.
+                  </p>
+                  <p>
+                  If you're a really cool person, before you do this step to fix it, you can use the
+                  <code>/rageshake</code> command (or on mobile, literally shake your phone). This will prompt you to
+                  send debug logs to the developers of Element, so they can see what is causing these issues. The more
+                  logs we send them about this, the more likely they'll be able to fix it! If you are prompted to
+                  associate your logs with a GitHub issue, use <a
+                                                                   href="https://github.com/vector-im/element-web/issues/6989">this
+                                                                   one</a> until we find a better open issue to
+                                                                 associate them with.
                   </p>
                   <a href="#toc" class="button">Back to the top</a>
                 </div>
