@@ -3350,7 +3350,6 @@ input, select, textarea {
 		position: absolute;
 		width: 64em;
 		max-width: calc(100% - 4em);
-    min-width: 26em;
 		padding: 1em;
 		background-color: #f7f7f7;
 		border-top-left-radius: 0.25em;
@@ -3450,7 +3449,6 @@ input, select, textarea {
 					font-size: 0.9em;
 				}
 
-        /*
 		@media screen and (max-width: 736px) {
 
 			#nav {
@@ -3462,7 +3460,6 @@ input, select, textarea {
 				}
 
 		}
-    */
 
 /* Main */
 
